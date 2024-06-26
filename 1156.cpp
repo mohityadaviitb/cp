@@ -8,10 +8,10 @@
 #define pb push_back
 #define MODE 1000000007
 #define sor(v)  sort(v.begin(), v.end()); 
+#define sorr(v) sort(v,v+n),
 #define cy cout<<"YES\n";
 #define cn cout<<"NO\n";
 #define cm cout<<"-1\n";
-#define ce cout<<"\n";
 #define pi 3.141592653589793238
 #define pll pair<ll, ll>
 using namespace std;
@@ -23,9 +23,7 @@ bool isPrime( ll n){if(n<=1)return false;if(n<=3)return true;if(n%2==0||n%3==0)r
 bool isPowerOfTwo( ll n){if(n==0)return false;return (ceil(log2(n)) == floor(log2(n)));}
 bool isPerfectSquare(ll x){if (x >= 0) {ll sr = sqrt(x);return (sr * sr == x);}return false;}
 bool allarrsame( ll arr[], ll size) {for( ll i = 1;i<size;++i){if(arr[i]!=arr[0]){return false;}}return true;}
-template <class T> bool ckmin(T &a, const T &b) { return b < a ? a = b, 1 : 0; }
-template <class T> bool ckmax(T &a, const T &b) { return a < b ? a = b, 1 : 0; }
-ll nooftimes( ll arr[],  ll size,  ll element) { ll count = 0;for ( ll i = 0; i < size; i++) { if (arr[i] == element) {count++;}}return count;}
+ ll nooftimes( ll arr[],  ll size,  ll element) { ll count = 0;for ( ll i = 0; i < size; i++) { if (arr[i] == element) {count++;}}return count;}
 ll gcd(ll a, ll b){if (b == 0)return a;return gcd(b, a % b);}
 ll lcm(ll a, ll b){return (a/gcd(a,b)*b);}
 ll binaryToDecimal(string n){string num = n;ll dec_value = 0; ll base = 1; ll len = num.length();for( ll i = len - 1; i >= 0; i--){if (num[i] == '1')dec_value += base;base = base * 2;}return dec_value;}
@@ -36,28 +34,92 @@ string decToBinary( ll n){string s=""; ll i = 0;while (n > 0) {s =to_string(n % 
 
 
 
-// #define commented // Un-Comment this before submission
+#define commented // Un - Comment this before submission
 #ifndef commented
 #define dbg(v) cerr << "Line(" << __LINE__ << ") -> " << #v << " = " << (v) << '\n';
 #else
 #define dbg(v)
 #endif
 
+template <class T> bool ckmin(T &a, const T &b) { return b < a ? a = b, 1 : 0; }
+template <class T> bool ckmax(T &a, const T &b) { return a < b ? a = b, 1 : 0; }
+
+
+
+ll binarySearchIndexEqualOrLess(const std::vector<ll>& arr,ll x) {
+    ll left = 0;
+    ll right = arr.size() - 1;
+    ll result = -1;
+
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+
+        if (arr[mid] <= x) {
+            result = mid; // Update result to the current mid index
+            left = mid + 1; // Search the right half
+        } else {
+            right = mid - 1; // Search the left half
+        }
+    }
+
+    return result; // Return the last updated result
+}
 
 
 
 void solve()
 {
-  	ll n;
-	cin >> n;
+
+
+
+  	ll n,t;
+	cin >> n>>t;
+
+
+    // dbg(n);
     
 	vector <ll>v;
+    	vector <ll>w;
     fu(i,0,n){
 		ll elm;
          cin >> elm;
 		 v.pb(elm);
+         w.pb(0);
     }
+
+    sor(v);
+
+ll z=0;
+fu(i,0,n){
+    if(w[i]==1 || w[i]==2){
+        continue;
+    }
+                  z=  binarySearchIndexEqualOrLess(v,t-v[i]);
+
+      if(v[i] != -1000 && z!=-1){
+        dbg(i);
+        dbg(z);
+        w[z]=1;
+        w[i]=2;
+      }
+
+
+
+}
 	
+
+fu(i,0,n){
+    if(w[i]==1){
+        v[i]=0;
+    }
+    else{
+        v[i]=1;
+    }
+}
+
+
+printvec(v);
+
 
 }      
  

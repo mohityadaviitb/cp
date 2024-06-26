@@ -57,6 +57,15 @@ void solve()
          cin >> elm;
 		 v.pb(elm);
     }
+
+    ll s=INT_MAX;
+
+    fu(i,0,n-1){
+        ll t=max(v[i],v[i+1]);
+        s=min(t,s);
+    }
+
+    cout << s-1 <<endl;
 	
 
 }      

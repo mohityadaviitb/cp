@@ -44,22 +44,69 @@ string decToBinary( ll n){string s=""; ll i = 0;while (n > 0) {s =to_string(n % 
 #endif
 
 
+array<int, 32> intToBinaryArray(int num) {
+    array<int, 32> binaryArray = {0};
+    for (int i = 31; i >= 0; --i) {
+        binaryArray[i] = (num >> (31 - i)) & 1;
+    }
+    return binaryArray;
+}
 
 
 void solve()
 {
-  	ll n;
-	cin >> n;
-    
-	vector <ll>v;
-    fu(i,0,n){
-		ll elm;
-         cin >> elm;
-		 v.pb(elm);
-    }
-	
+ll x,y;
+cin >> x >>y;
 
-}      
+ll m=0;
+
+
+array<int, 32> a =intToBinaryArray(x);
+array<int, 32> b =intToBinaryArray(y);
+
+
+// fu(i,0,32){
+//     cout << a[i]<<" ";
+
+// }
+// ce;
+// fu(i,0,32){
+//     cout << b[i]<<" ";
+// }
+// ce;
+
+
+
+fd(i,32,0){
+   if(a[i]!=b[i]){
+    m=i;
+    break;
+   }
+}
+
+
+cout << static_cast<int>(pow(2,31-m))<<endl;
+
+
+
+
+
+
+// ll m=0;
+// fd(i,31,0){
+//     // if(sa[i]!=sb[i]){
+//         m=i;
+//     }
+// }
+}
+
+// cout << pow(2,m)<<endl;
+
+
+
+
+
+// }      
  
 
 

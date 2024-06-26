@@ -48,14 +48,60 @@ string decToBinary( ll n){string s=""; ll i = 0;while (n > 0) {s =to_string(n % 
 
 void solve()
 {
-  	ll n;
-	cin >> n;
+    string s;
+    cin >> s;
+
+
+ll n=s.length();
+
+vector <ll>v;
+  
+		
+     ll sum=0;
     
-	vector <ll>v;
-    fu(i,0,n){
-		ll elm;
-         cin >> elm;
-		 v.pb(elm);
+ v.pb(0);
+fu(i,1,n){
+    if(s[i]==s[i-1]){
+        sum++;
+        	
+
+    }
+    	 v.pb(sum);
+}
+
+// fu(i,0,n){
+//     cout << s[i]<<" ";
+// }
+// cout << endl;
+
+
+// fu(i,0,n){
+//     cout << v[i]<<" ";
+// }
+// cout << endl;
+
+
+
+  	ll z;
+	cin >> z;
+    
+
+
+
+    fu(i,0,z){
+        ll l=0,r=0;
+        cin >>l >>r;
+    
+    //    if(l!=r-1){
+    //       cout << l << " " << r <<" " << " "<< v[r-2]-v[l-1]<<endl;
+    //    }
+    //    else{
+        //   cout << l << " " << r <<" " << " "<< v[r-1]-v[l-1]<<endl;
+cout << v[r-1]-v[l-1]<<endl;
+    //    }
+                  
+
+      
     }
 	
 
@@ -86,8 +132,8 @@ void solve()
  int main()
 {
 	Code By Mohityadav
-	ll t;
-	cin >> t;
+	ll t=1;
+	
 	while (t--)
 	{
 		solve();

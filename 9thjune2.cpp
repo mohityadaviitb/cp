@@ -48,16 +48,33 @@ string decToBinary( ll n){string s=""; ll i = 0;while (n > 0) {s =to_string(n % 
 
 void solve()
 {
-  	ll n;
-	cin >> n;
-    
-	vector <ll>v;
-    fu(i,0,n){
-		ll elm;
-         cin >> elm;
-		 v.pb(elm);
+  	ll x;
+	cin >> x;
+    if(x%2 !=0){
+        x++;
     }
-	
+
+    ll n = ceil(log10(x));
+
+    n--;
+    ll a=5;
+    ll b=9;
+
+    fu(i,0,n-1){
+        a *=10;
+        a+=5;
+    }
+    fu(i,0,n-1){
+        b *=10;
+        b+=9;
+    }
+    
+if(x/2>=a && x/2<=b){
+    cy;
+}
+else{
+    cn;
+}
 
 }      
  

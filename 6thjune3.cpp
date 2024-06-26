@@ -46,6 +46,7 @@ string decToBinary( ll n){string s=""; ll i = 0;while (n > 0) {s =to_string(n % 
 
 
 
+
 void solve()
 {
   	ll n;
@@ -57,9 +58,18 @@ void solve()
          cin >> elm;
 		 v.pb(elm);
     }
-	
+    
 
-}      
+    
+
+
+
+
+
+
+}
+
+
  
 
 

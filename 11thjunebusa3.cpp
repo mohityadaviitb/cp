@@ -57,6 +57,20 @@ void solve()
          cin >> elm;
 		 v.pb(elm);
     }
+
+  ll m=1;
+
+  fu(i,0,n){
+    fu(j,i+1,n){
+           ll temp=(v[i])%(v[j]);
+    dbg(temp);
+    m*=temp;
+    dbg(m);
+    m = m%MODE;
+    }
+  }
+
+    cout << m <<endl;
 	
 
 }      
@@ -86,8 +100,7 @@ void solve()
  int main()
 {
 	Code By Mohityadav
-	ll t;
-	cin >> t;
+	ll t=1;
 	while (t--)
 	{
 		solve();

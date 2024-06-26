@@ -7,25 +7,23 @@
 #define ll long long int
 #define pb push_back
 #define MODE 1000000007
-#define sor(v)  sort(v.begin(), v.end()); 
+#define sor(v) v.begin(), v.end()
+#define sorr(v) sort(v,v+n),
 #define cy cout<<"YES\n";
 #define cn cout<<"NO\n";
 #define cm cout<<"-1\n";
-#define ce cout<<"\n";
 #define pi 3.141592653589793238
 #define pll pair<ll, ll>
 using namespace std;
 typedef vector<ll> vll;
 typedef map<ll,ll> mll;
 typedef unordered_map<ll,ll> umll;
-void printvec(const vector<ll>& v) {for (ll i = 0; i < v.size(); ++i) {cout << v[i] << " ";}cout << "\n";}
+void printarr(ll arr[], ll n){fu(i, 0, n) cout << arr[i] << " ";cout << "\n";}
 bool isPrime( ll n){if(n<=1)return false;if(n<=3)return true;if(n%2==0||n%3==0)return false;for( ll i=5;i*i<=n;i=i+6)if(n%i==0||n%(i+2)==0)return false;return true;}
 bool isPowerOfTwo( ll n){if(n==0)return false;return (ceil(log2(n)) == floor(log2(n)));}
 bool isPerfectSquare(ll x){if (x >= 0) {ll sr = sqrt(x);return (sr * sr == x);}return false;}
 bool allarrsame( ll arr[], ll size) {for( ll i = 1;i<size;++i){if(arr[i]!=arr[0]){return false;}}return true;}
-template <class T> bool ckmin(T &a, const T &b) { return b < a ? a = b, 1 : 0; }
-template <class T> bool ckmax(T &a, const T &b) { return a < b ? a = b, 1 : 0; }
-ll nooftimes( ll arr[],  ll size,  ll element) { ll count = 0;for ( ll i = 0; i < size; i++) { if (arr[i] == element) {count++;}}return count;}
+ ll nooftimes( ll arr[],  ll size,  ll element) { ll count = 0;for ( ll i = 0; i < size; i++) { if (arr[i] == element) {count++;}}return count;}
 ll gcd(ll a, ll b){if (b == 0)return a;return gcd(b, a % b);}
 ll lcm(ll a, ll b){return (a/gcd(a,b)*b);}
 ll binaryToDecimal(string n){string num = n;ll dec_value = 0; ll base = 1; ll len = num.length();for( ll i = len - 1; i >= 0; i--){if (num[i] == '1')dec_value += base;base = base * 2;}return dec_value;}
@@ -36,29 +34,76 @@ string decToBinary( ll n){string s=""; ll i = 0;while (n > 0) {s =to_string(n % 
 
 
 
-// #define commented // Un-Comment this before submission
-#ifndef commented
-#define dbg(v) cerr << "Line(" << __LINE__ << ") -> " << #v << " = " << (v) << '\n';
-#else
-#define dbg(v)
-#endif
 
 
 
 
-void solve()
+
+ll solv(int x,vector<ll>a)
 {
-  	ll n;
-	cin >> n;
-    
-	vector <ll>v;
-    fu(i,0,n){
-		ll elm;
-         cin >> elm;
-		 v.pb(elm);
-    }
-	
 
+
+
+    ll x2=y;
+
+
+// vector <ll>c;
+
+  fu(i,0,r){
+		
+		 a.pb(0);
+        //  c.pb(0);
+    }
+
+
+a[r-1]=1;
+
+    while(y>0){
+        ll b=log2(y);
+        a[b]=-1;
+        // cout << b << endl;
+        y-=pow(2,b);
+    }
+ll t=0;
+
+
+
+ fu(i,0,r){
+      
+        cout << a[i]<<" ";
+    }
+
+
+
+
+cout << "t"<<t<<endl;
+    fu(i,0,r){
+        if(a[i]!=0 && a[i+1]!=0){
+            // cout <<"i"<<a[i]<<a[i+1]<<endl;
+            t++;
+            break;
+        }
+    }
+    cout << "te"<<t<<endl;
+
+
+if(t==0){
+    return r;
+}
+
+else{
+
+ fu(i,0,r-1){
+		
+		 a.pb(0);
+        //  c.pb(0);
+    }
+
+
+return solv(x2,a);
+
+}
+   
 }      
  
 
@@ -69,7 +114,36 @@ void solve()
 
 
 
+void solve(){
+  	ll x;
+    cin >> x;
+vector <ll>a;
 
+
+    ll n=ceil(log2(x));
+    ll r=n+1;
+
+cout << r<<endl;
+   
+
+    ll y = pow(2,n)-x;
+
+
+
+
+
+ll r=solv(x,a);
+//   cout << "ram";
+ cout << r << endl;
+//    cout << "ram";
+     fu(i,0,r){
+      
+        cout << a[i]<<" ";
+    }
+    cout << endl;
+
+
+}
 
 
 

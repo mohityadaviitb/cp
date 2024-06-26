@@ -43,13 +43,32 @@ string decToBinary( ll n){string s=""; ll i = 0;while (n > 0) {s =to_string(n % 
 #define dbg(v)
 #endif
 
+ll mostFrequentElement(const std::vector<ll>& vec) {
+    std::unordered_map<ll, ll> frequencyMap;
 
+    // Count the occurrences of each element
+    for (ll num : vec) {
+        frequencyMap[num]++;
+    }
+
+    // Find the element with the highest frequency
+    ll mostFrequent = vec[0];
+    ll maxCount = 0;
+    for (const auto& pair : frequencyMap) {
+        if (pair.second > maxCount) {
+            maxCount = pair.second;
+            mostFrequent = pair.first;
+        }
+    }
+
+    return mostFrequent;
+}
 
 
 void solve()
 {
-  	ll n;
-	cin >> n;
+  	ll n,k;
+	cin >> n>>k;
     
 	vector <ll>v;
     fu(i,0,n){
@@ -57,7 +76,58 @@ void solve()
          cin >> elm;
 		 v.pb(elm);
     }
-	
+    ll r=0;
+fu(i,0,n){
+    if(v[i]>r){
+        r=v[i];
+    }
+}
+
+// ll z= mostFrequentElement(v);
+ll mini=INT_MAX;
+
+fu(j,1,r){
+    ll z=j;
+dbg(z);
+
+ll s=0;
+ll e=0;
+ll m=0;
+ll y=0;
+
+    fu(i,0,n){
+
+    if(i==n-1 && v[i] != z){
+        m++;
+        break;
+    }
+
+    if(v[i] != z && y==0){
+        s=i;
+        y++;
+    }
+    if(y!=0 && (v[i] ==z || i==n-1)){
+       m+= (i-s)/k;
+         y=0;
+       if((i-s)%k!=0){
+        m++;
+      
+       }
+    }
+dbg(i);
+    dbg(m);
+}
+mini = min(mini,m);
+
+}
+
+
+cout << mini<<endl;
+
+
+
+
+
 
 }      
  

@@ -48,16 +48,24 @@ string decToBinary( ll n){string s=""; ll i = 0;while (n > 0) {s =to_string(n % 
 
 void solve()
 {
-  	ll n;
-	cin >> n;
-    
-	vector <ll>v;
+  	string s;
+    cin >> s;
+
+    ll n=s.length();
+    ll z=0;
+
     fu(i,0,n){
-		ll elm;
-         cin >> elm;
-		 v.pb(elm);
+        if(s[i]>=48 && s[i]<=57){
+z++;
+        }
     }
-	
+
+string m;
+
+	fu(i,0,n-2*z){
+        m+=s[i];
+    }
+    cout << m <<endl;
 
 }      
  
@@ -86,9 +94,8 @@ void solve()
  int main()
 {
 	Code By Mohityadav
-	ll t;
-	cin >> t;
-	while (t--)
+	ll test=1;
+	while (test--)
 	{
 		solve();
 	}

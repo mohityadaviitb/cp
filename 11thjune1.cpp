@@ -48,16 +48,23 @@ string decToBinary( ll n){string s=""; ll i = 0;while (n > 0) {s =to_string(n % 
 
 void solve()
 {
-  	ll n;
-	cin >> n;
-    
-	vector <ll>v;
-    fu(i,0,n){
-		ll elm;
-         cin >> elm;
-		 v.pb(elm);
-    }
-	
+  string a;
+  cin >> a;
+  string b;
+  cin >> b;
+
+  string c;
+  c+=b[0];
+  c+=a[1];
+  c+=a[2];
+
+
+  string d;
+  d+=a[0];
+  d+=b[1];
+  d+=b[2];
+ 
+	cout << c << " "<<d<<endl;
 
 }      
  

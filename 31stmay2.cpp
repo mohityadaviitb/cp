@@ -18,7 +18,7 @@ using namespace std;
 typedef vector<ll> vll;
 typedef map<ll,ll> mll;
 typedef unordered_map<ll,ll> umll;
-void printvec(const vector<ll>& v) {for (ll i = 0; i < v.size(); ++i) {cout << v[i] << " ";}cout << "\n";}
+void printvec(const vector<ll>& v) {for (ll i = 0; i < v.size()+2; ++i) {cout << v[i] << " ";}cout << "\n";}
 bool isPrime( ll n){if(n<=1)return false;if(n<=3)return true;if(n%2==0||n%3==0)return false;for( ll i=5;i*i<=n;i=i+6)if(n%i==0||n%(i+2)==0)return false;return true;}
 bool isPowerOfTwo( ll n){if(n==0)return false;return (ceil(log2(n)) == floor(log2(n)));}
 bool isPerfectSquare(ll x){if (x >= 0) {ll sr = sqrt(x);return (sr * sr == x);}return false;}
@@ -36,7 +36,7 @@ string decToBinary( ll n){string s=""; ll i = 0;while (n > 0) {s =to_string(n % 
 
 
 
-// #define commented // Un-Comment this before submission
+#define commented // Un-Comment this before submission
 #ifndef commented
 #define dbg(v) cerr << "Line(" << __LINE__ << ") -> " << #v << " = " << (v) << '\n';
 #else
@@ -48,15 +48,50 @@ string decToBinary( ll n){string s=""; ll i = 0;while (n > 0) {s =to_string(n % 
 
 void solve()
 {
-  	ll n;
-	cin >> n;
-    
-	vector <ll>v;
-    fu(i,0,n){
-		ll elm;
-         cin >> elm;
-		 v.pb(elm);
+  	ll m,n;
+	cin >> n>>m;
+
+
+
+    vector <ll>v;
+        vector <ll>w;
+    fu(i,0,n+10){
+	
+		 v.pb(i);
+         w.pb(i);
     }
+       while(m>0){
+           
+fu(i,0,n+10){
+  
+
+        if(i==0){
+            w[i] = v[i] | v[i+1];
+        }
+        else{
+              w[i] = v[i-1] | v[i] | v[i+1];
+        }
+
+     
+       
+    }
+
+fu(i,0,n+10){
+    v[i]=w[i];
+
+}
+
+
+
+     m--;
+//   printvec(v);
+}
+
+
+cout  <<endl<<v[n]<<endl;
+   
+    
+	
 	
 
 }      

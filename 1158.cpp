@@ -36,7 +36,7 @@ string decToBinary( ll n){string s=""; ll i = 0;while (n > 0) {s =to_string(n % 
 
 
 
-// #define commented // Un-Comment this before submission
+#define commented // Un-Comment this before submission
 #ifndef commented
 #define dbg(v) cerr << "Line(" << __LINE__ << ") -> " << #v << " = " << (v) << '\n';
 #else
@@ -51,13 +51,67 @@ void solve()
   	ll n;
 	cin >> n;
     
-	vector <ll>v;
-    fu(i,0,n){
-		ll elm;
-         cin >> elm;
-		 v.pb(elm);
+	vector< vector < char > > v;
+
+    for (int i = 0; i < n; ++i) {
+        string s;
+        cin >> s;
+
+        vector<char> row;
+        for (int j = 0; j < n; ++j) {
+           
+            row.push_back(s[j]);
+        }
+        v.push_back(row);
     }
+
+char z = v[0][1];
+char y= '1';
+if(z=='1'){
+	y='0';
+}
+
+
+
+	if(z==v[n-2][n-1]&& z==v[n-1][n-2]){
+		cout <<2 << endl;
+		v[n-2][n-1]= y;
+		v[n-1][n-2]= y;
+	cout << n<<" "<<n-1;
+	ce;
+	cout << n-1<<" "<<n;
+	ce;
+
+	}
 	
+	else if(z!=v[n-2][n-1] && z==v[n-1][n-2]){
+
+		dbg(n);
+	dbg(z);
+	cout <<1 << endl;
+	v[n-1][n-2]= y;
+	cout << n<<" "<<n-1;
+ce;
+	}
+
+	else if(z==v[n-2][n-1]&& z!=v[n-1][n-2]){
+
+			dbg(z);
+
+	cout <<1 << endl;
+		
+			v[n-2][n-1]= y;
+						cout << n-1<<" "<<n;
+ce;
+	}
+	else{
+		cout << 0 <<endl;
+	}
+
+
+
+	
+
 
 }      
  
@@ -94,3 +148,20 @@ void solve()
 	}
 	return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

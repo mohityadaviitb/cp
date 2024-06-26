@@ -25,7 +25,7 @@ bool isPerfectSquare(ll x){if (x >= 0) {ll sr = sqrt(x);return (sr * sr == x);}r
 bool allarrsame( ll arr[], ll size) {for( ll i = 1;i<size;++i){if(arr[i]!=arr[0]){return false;}}return true;}
 template <class T> bool ckmin(T &a, const T &b) { return b < a ? a = b, 1 : 0; }
 template <class T> bool ckmax(T &a, const T &b) { return a < b ? a = b, 1 : 0; }
-ll nooftimes( ll arr[],  ll size,  ll element) { ll count = 0;for ( ll i = 0; i < size; i++) { if (arr[i] == element) {count++;}}return count;}
+ll nooftimes( char arr[],  ll size,  char element) { ll count = 0;for ( ll i = 0; i < size; i++) { if (arr[i] == element) {count++;}}return count;}
 ll gcd(ll a, ll b){if (b == 0)return a;return gcd(b, a % b);}
 ll lcm(ll a, ll b){return (a/gcd(a,b)*b);}
 ll binaryToDecimal(string n){string num = n;ll dec_value = 0; ll base = 1; ll len = num.length();for( ll i = len - 1; i >= 0; i--){if (num[i] == '1')dec_value += base;base = base * 2;}return dec_value;}
@@ -36,7 +36,7 @@ string decToBinary( ll n){string s=""; ll i = 0;while (n > 0) {s =to_string(n % 
 
 
 
-// #define commented // Un-Comment this before submission
+#define commented // Un-Comment this before submission
 #ifndef commented
 #define dbg(v) cerr << "Line(" << __LINE__ << ") -> " << #v << " = " << (v) << '\n';
 #else
@@ -48,16 +48,21 @@ string decToBinary( ll n){string s=""; ll i = 0;while (n > 0) {s =to_string(n % 
 
 void solve()
 {
-  	ll n;
-	cin >> n;
+  	ll n,f,k;
+	cin >> n>>f>>k;
     
+
+   
 	vector <ll>v;
     fu(i,0,n){
 		ll elm;
          cin >> elm;
 		 v.pb(elm);
     }
-	
+
+
+
+
 
 }      
  
@@ -86,9 +91,9 @@ void solve()
  int main()
 {
 	Code By Mohityadav
-	ll t;
-	cin >> t;
-	while (t--)
+	ll testc;
+	cin >> testc;
+	while (testc--)
 	{
 		solve();
 	}

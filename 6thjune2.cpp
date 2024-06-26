@@ -48,16 +48,82 @@ string decToBinary( ll n){string s=""; ll i = 0;while (n > 0) {s =to_string(n % 
 
 void solve()
 {
-  	ll n;
-	cin >> n;
-    
-	vector <ll>v;
-    fu(i,0,n){
-		ll elm;
-         cin >> elm;
-		 v.pb(elm);
+ll x,y;
+cin >> x >>y;
+
+
+
+vector <ll>a;
+vector <ll>b;
+
+    fu(i,1,100000){
+	        ll r=x^i;
+        	ll s =y^i;
+             a.pb(r);
+              b.pb(s);
     }
-	
+
+// fu(i,0,20){
+//     cout << a[i]<<" ";
+// }
+// ce;
+// fu(i,0,20){
+//     cout << b[i]<<" ";
+// }
+// ce;
+
+ll m=1;
+ll n=1;
+ll count =0;
+ll final=0;
+while(count <500000){
+
+
+ll jaadu=0;
+
+
+
+
+
+
+
+
+fu(i,m,100000){
+    fu(j,n,100000){
+        if(a[i]==b[j]){
+            m=i;
+            n=j;
+jaadu++;
+            break;
+        }
+}
+if(jaadu!=0){
+    break;
+}
+}
+
+dbg(m);
+dbg(n);
+
+
+    ll ans=m;
+
+while(a[m]==b[n]){
+        m++;
+        n++;
+}
+
+ans=m-ans;
+
+final=max(final,ans);
+dbg(final);
+
+count++;
+
+}
+
+
+cout << final<<endl;
 
 }      
  

@@ -51,12 +51,53 @@ void solve()
   	ll n;
 	cin >> n;
     
-	vector <ll>v;
+	vector <ll>a;
     fu(i,0,n){
 		ll elm;
          cin >> elm;
-		 v.pb(elm);
+		 a.pb(elm);
     }
+w
+    	vector <ll>b;
+    fu(i,0,n-1){
+		ll elm;
+         cin >> elm;
+		 b.pb(elm);
+    }
+
+    	vector <ll>c;
+    fu(i,0,n-2){
+		ll elm;
+         cin >> elm;
+		 c.pb(elm);
+    }
+
+    sor(a);
+    sor(b);
+    sor(c);
+
+    fu(i,0,n-1){
+        if(a[i]!=b[i]){
+            cout << a[i]<<endl;
+            break;
+        }
+        else if(i==n-2){
+               cout << a[n-1]<<endl;
+        }
+    }
+
+      fu(i,0,n-2){
+        if(c[i]!=b[i]){
+            cout << b[i]<<endl;
+            break;
+        }
+
+        else if(i==n-3){
+               cout << b[n-2]<<endl;
+        }
+    }
+
+
 	
 
 }      
@@ -86,8 +127,7 @@ void solve()
  int main()
 {
 	Code By Mohityadav
-	ll t;
-	cin >> t;
+	ll t=1;
 	while (t--)
 	{
 		solve();

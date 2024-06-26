@@ -36,7 +36,7 @@ string decToBinary( ll n){string s=""; ll i = 0;while (n > 0) {s =to_string(n % 
 
 
 
-// #define commented // Un-Comment this before submission
+#define commented // Un-Comment this before submission
 #ifndef commented
 #define dbg(v) cerr << "Line(" << __LINE__ << ") -> " << #v << " = " << (v) << '\n';
 #else
@@ -57,7 +57,21 @@ void solve()
          cin >> elm;
 		 v.pb(elm);
     }
-	
+	ll q;
+    cin >>q;
+
+    vector <ll>vq;
+    fu(i,0,q){
+		ll elm;
+         cin >> elm;
+		 vq.pb(elm);
+    }
+
+    sor(v);
+
+fu(i,0,q){
+        
+}
 
 }      
  

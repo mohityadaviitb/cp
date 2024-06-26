@@ -51,13 +51,29 @@ void solve()
   	ll n;
 	cin >> n;
     
-	vector <ll>v;
+ll  a[n];
     fu(i,0,n){
-		ll elm;
-         cin >> elm;
-		 v.pb(elm);
+		cin >> a[i]; 
+    }
+
+
+
+
+
+    if(a[0]==a[n-1]){
+        cn;
     }
 	
+    else{
+        cy;
+        string str;
+        str+=  'B';
+        str+=  'R';
+        fu(i,0,n-2){
+            str += "B";
+        }
+        cout << str <<endl;
+    }
 
 }      
  

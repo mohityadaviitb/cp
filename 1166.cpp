@@ -20,7 +20,6 @@ typedef map<ll,ll> mll;
 typedef unordered_map<ll,ll> umll;
 void printvec(const vector<ll>& v) {for (ll i = 0; i < v.size(); ++i) {cout << v[i] << " ";}cout << "\n";}
 bool isPrime( ll n){if(n<=1)return false;if(n<=3)return true;if(n%2==0||n%3==0)return false;for( ll i=5;i*i<=n;i=i+6)if(n%i==0||n%(i+2)==0)return false;return true;}
-bool isPowerOfTwo( ll n){if(n==0)return false;return (ceil(log2(n)) == floor(log2(n)));}
 bool isPerfectSquare(ll x){if (x >= 0) {ll sr = sqrt(x);return (sr * sr == x);}return false;}
 bool allarrsame( ll arr[], ll size) {for( ll i = 1;i<size;++i){if(arr[i]!=arr[0]){return false;}}return true;}
 template <class T> bool ckmin(T &a, const T &b) { return b < a ? a = b, 1 : 0; }
@@ -48,8 +47,8 @@ string decToBinary( ll n){string s=""; ll i = 0;while (n > 0) {s =to_string(n % 
 
 void solve()
 {
-  	ll n;
-	cin >> n;
+  	ll n,m;
+	cin >> n>>m;
     
 	vector <ll>v;
     fu(i,0,n){
@@ -57,7 +56,22 @@ void solve()
          cin >> elm;
 		 v.pb(elm);
     }
+
+    	vector <ll>mv;
+    fu(i,0,m){
+		ll elm;
+         cin >> elm;
+		 mv.pb(elm);
+    }
 	
+fu(i,0,m){
+    set<int> unique_elements(v.begin() + mv[i]-1, v.end());
+    ll z= unique_elements.size();
+    cout << z<<endl;
+
+}
+
+    
 
 }      
  
@@ -86,8 +100,8 @@ void solve()
  int main()
 {
 	Code By Mohityadav
-	ll t;
-	cin >> t;
+	ll t=1;
+	
 	while (t--)
 	{
 		solve();

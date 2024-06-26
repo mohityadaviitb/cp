@@ -48,17 +48,21 @@ string decToBinary( ll n){string s=""; ll i = 0;while (n > 0) {s =to_string(n % 
 
 void solve()
 {
-  	ll n;
-	cin >> n;
+  	ll x,y,z;
+	cin >> x>>y>>z;
     
-	vector <ll>v;
-    fu(i,0,n){
-		ll elm;
-         cin >> elm;
-		 v.pb(elm);
-    }
-	
+ll sum=INT_MAX;
+ll si=0;
 
+	fu(i,1,11){
+      int   s=abs(i-x)+abs(i-y)+abs(i-z);
+        if(s<sum){
+            sum=s;
+            si=i;
+        }
+    }
+
+cout <<sum<<endl;
 }      
  
 
