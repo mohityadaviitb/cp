@@ -1,0 +1,39 @@
+{
+  "Components": [
+    {
+      "Name": "Benzyl Chloride",
+      "Formula": "C7H7Cl",
+      "CAS": "100-44-7",
+      "MolecularWeight": 126.58,
+      "BoilingPoint": 179.3,
+      "CriticalTemperature": 618.15,
+      "CriticalPressure": 4.43,
+      "CriticalVolume": 0.291,
+      "AcentricFactor": 0.249,
+      "Density": 1.1,
+      "HeatCapacityGas": {
+        "Equation": "A + B*T + C*T^2 + D*T^3",
+        "Coefficients": [1.2, 0.01, -1.5e-6, 3.1e-9]
+      },
+      "HeatCapacityLiquid": {
+        "Equation": "A + B*T + C*T^2",
+        "Coefficients": [2.5, 0.005, -3.2e-6]
+      },
+      "EnthalpyOfFormation": -10.5,
+      "VaporPressure": {
+        "Equation": "Antoine",
+        "Coefficients": [4.5, 1200, -90]
+      },
+      "Viscosity": {
+        "Liquid": {
+          "Equation": "A * exp(B/T)",
+          "Coefficients": [0.8, 1200]
+        },
+        "Gas": {
+          "Equation": "A + B*T",
+          "Coefficients": [0.0001, 1.5e-6]
+        }
+      }
+    }
+  ]
+}
